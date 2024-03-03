@@ -18,7 +18,7 @@ end
 function MagEnergy(spin_sys::SpinSystemLL{Float64})
   energy = 0.0
   for (J, idx1, idx2) in spin_sys.interactions
-    energy += dot(spin_sys.dipoles[idx1,:], spin_sys.dipoles[idx2,:])
+    energy += dot(spin_sys.dipoles[idx1,:], J * spin_sys.dipoles[idx2,:])
   end
   return energy
 end
